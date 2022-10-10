@@ -43,10 +43,8 @@ def call(header,alias) :
     response = requests.get(header+alias)
     data = response.json()
     if alias == points :
-        print(header+alias)
         format = data['properties']['forecast']
         reRetrieve = format.replace('"', "")
-        print(reRetrieve)
         responseNew = requests.get(reRetrieve)
         dataNew = responseNew.json()
         formatNew = dataNew['properties']['periods'][0]['detailedForecast']
